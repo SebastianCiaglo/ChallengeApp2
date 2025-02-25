@@ -1,30 +1,14 @@
-﻿
+﻿using ChallengeApp2;
 
-int number = 4522;
+User user1 = new User("Adam", "sd");
+User user2 = new User("Monika", "sd");
+User user3 = new User("Zuzia", "sd");
+User user4 = new User("Damian", "sd");
 
-string numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+user1.AddScore(5);
+user1.AddScore(2);
+var result = user1.Result;
+Console.WriteLine(result);
 
-int[] howMuch = new int[10];
 
-foreach (char c in letters)
-{
-      for (int i = 0; i < 10; i++)
-    {
-        int toInt = c - '0';
-        if (toInt ==i)
-        {
-            howMuch[i] = howMuch[i] + 1;
-        }
 
-    }
-
- 
-}
-
-Console.WriteLine("Wyniki dla liczby: " + number);
-
-for (int i = 0;i < howMuch.Length; i++)
-{
-    Console.WriteLine(i + "=>" + howMuch[i]);
-}
