@@ -1,0 +1,31 @@
+using System.Reflection.Metadata;
+
+namespace ChallengeApp2.Tests
+{
+    public class EmployeeTests
+    {
+
+        [Test]
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectSum()
+        {
+            // arrange
+
+            var employee = new Employee("Bogdan", "R", 55);
+            employee.AddGrade(5);
+            employee.AddGrade(7);
+            employee.AddGrade(2);
+            employee.AddPenalty(-12);
+
+            // act
+
+            var result = employee.Result;
+
+            // assert
+
+            Assert.AreEqual(2, result);
+
+        }
+
+
+    }
+}

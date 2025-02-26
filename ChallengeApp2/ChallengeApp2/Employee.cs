@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeApp2
 {
-    internal class Employee
+    public class Employee
     {
 
         private List<int> grades = new List<int>();
@@ -37,6 +37,10 @@ namespace ChallengeApp2
             this.grades.Add(number);
         }
 
+        public void AddPenalty(int number)
+        {
+            this.grades.Add(number);
+        }
 
     }
 }
