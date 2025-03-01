@@ -10,7 +10,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R", 55);
+            var employee = new Employee("Bogdan", "R");
             employee.AddGrade(5);
             employee.AddGrade(7);
             employee.AddGrade(2);
@@ -25,6 +25,31 @@ namespace ChallengeApp2.Tests
             Assert.AreEqual(2, result);
 
         }
+
+        [Test]
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectStatistics()
+        {
+            // arrange
+
+            var employee = new Employee("Bogdan", "R");
+            employee.AddGrade(5);
+            employee.AddGrade(7);
+
+
+            // act
+
+            var statistics = employee.GetStatistics();
+
+            // assert
+
+            Assert.AreEqual(6, statistics.Average);
+            Assert.AreEqual(7, statistics.Max);
+            Assert.AreEqual(5, statistics.Min);
+
+        }
+
+
+
 
 
     }

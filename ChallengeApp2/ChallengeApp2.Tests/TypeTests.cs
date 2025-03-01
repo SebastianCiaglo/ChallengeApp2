@@ -28,8 +28,8 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee1 = GetEmployee("Janusz", "T", 66);
-            var employee2 = GetEmployee("Jan", "Z", 52);
+            var employee1 = GetEmployee("Janusz", "T");
+            var employee2 = GetEmployee("Jan", "Z");
 
             // act
 
@@ -40,10 +40,10 @@ namespace ChallengeApp2.Tests
 
         }
 
-        private Employee GetEmployee(string name, string surname, int age)
+        private Employee GetEmployee(string name, string surname)
         {
 
-            return new Employee(name, surname, age);
+            return new Employee(name, surname);
 
         }
 
