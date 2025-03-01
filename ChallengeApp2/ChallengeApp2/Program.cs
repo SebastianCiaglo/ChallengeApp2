@@ -3,8 +3,8 @@
 
 Employee employee1 =new Employee("Arek","T");
 
-employee1.AddGrade(5);
-employee1.AddGrade(9);
+employee1.AddGrade("a");
+employee1.AddGrade(900);
 employee1.AddGrade(2);
 
 

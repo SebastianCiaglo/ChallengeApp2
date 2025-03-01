@@ -27,7 +27,30 @@ namespace ChallengeApp2.Tests
         }
 
         [Test]
-        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectStatistics()
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectAverage()
+        {
+            // arrange
+
+            var employee = new Employee("Bogdan", "R");
+            employee.AddGrade(2);
+            employee.AddGrade(2);
+            employee.AddGrade(6);
+
+
+            // act
+
+            var statistics = employee.GetStatistics();
+
+            // assert
+
+            Assert.AreEqual(Math.Round(3.33,2), Math.Round(statistics.Average,2));
+            
+
+        }
+
+
+        [Test]
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectMax()
         {
             // arrange
 
@@ -42,12 +65,33 @@ namespace ChallengeApp2.Tests
 
             // assert
 
-            Assert.AreEqual(6, statistics.Average);
+            
             Assert.AreEqual(7, statistics.Max);
-            Assert.AreEqual(5, statistics.Min);
+            
 
         }
 
+
+        [Test]
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectMin()
+        {
+            // arrange
+
+            var employee = new Employee("Bogdan", "R");
+            employee.AddGrade(5);
+            employee.AddGrade(7);
+
+
+            // act
+
+            var statistics = employee.GetStatistics();
+
+            // assert
+
+           
+            Assert.AreEqual(5, statistics.Min);
+
+        }
 
 
 
