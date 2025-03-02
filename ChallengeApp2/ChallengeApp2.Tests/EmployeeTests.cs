@@ -39,7 +39,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatisticsWithWhile();
 
             // assert
 
@@ -61,7 +61,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatisticsWithWhile();
 
             // assert
 
@@ -84,7 +84,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatistics();
+            var statistics = employee.GetStatisticsWithWhile();
 
             // assert
 
