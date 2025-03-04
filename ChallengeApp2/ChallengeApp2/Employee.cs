@@ -10,6 +10,8 @@ namespace ChallengeApp2
     public class Employee
     {
 
+        private readonly char sex;
+
         private List<float> grades = new List<float>();
 
 
@@ -20,11 +22,11 @@ namespace ChallengeApp2
         }
 
 
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, char sex)
         {
             this.Name = name;
             this.Surname = surname;
-
+            this.sex = sex;
         }
 
         public string Name { get; private set; }
@@ -49,7 +51,7 @@ namespace ChallengeApp2
             }
             else
             {
-                Console.WriteLine("Invalid grade value");
+                throw new Exception("Invalid grade value");
             }
 
         }
@@ -60,13 +62,13 @@ namespace ChallengeApp2
             {
                 this.AddGrade(result);
             }
-            else if(char.TryParse(grade, out char charresult))
+            else if (char.TryParse(grade, out char charresult))
             {
                 this.AddGrade(charresult);
             }
             else
             {
-                Console.WriteLine("wrong input");
+                throw new Exception("Invalid grade value");
             }
         }
 
@@ -83,7 +85,7 @@ namespace ChallengeApp2
         {
 
 
-            switch(grade)
+            switch (grade)
             {
                 case 'A':
                 case 'a':
@@ -110,8 +112,8 @@ namespace ChallengeApp2
                     this.grades.Add(0);
                     break;
                 default:
-                    Console.WriteLine("wrong input");
-                    break;
+                    throw new Exception("Invalid grade value");
+
             }
 
         }
@@ -154,7 +156,7 @@ namespace ChallengeApp2
 
             statistics.Average /= this.grades.Count;
 
-            switch(statistics.Average)
+            switch (statistics.Average)
             {
                 case var average when average >= 80:
                     statistics.AverageLetter = 'A';
