@@ -39,7 +39,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatisticsWithWhile();
+            var statistics = employee.GetStatistics();
 
             // assert
 
@@ -61,7 +61,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatisticsWithWhile();
+            var statistics = employee.GetStatistics();
 
             // assert
 
@@ -84,7 +84,7 @@ namespace ChallengeApp2.Tests
 
             // act
 
-            var statistics = employee.GetStatisticsWithWhile();
+            var statistics = employee.GetStatistics();
 
             // assert
 
@@ -93,7 +93,27 @@ namespace ChallengeApp2.Tests
 
         }
 
+        [Test]
+        public void WhenEmployeeCollectsGrades_ShouldReturnCorrectLetter()
+        {
+            // arrange
 
+            var employee = new Employee("Bogdan", "R");
+            employee.AddGrade('a');
+            employee.AddGrade("a");
+            employee.AddGrade(100);
+            employee.AddGrade('f');
+
+
+            // act
+
+            var statistics = employee.GetStatistics();
+
+            // assert
+
+            Assert.AreEqual('B', statistics.AverageLetter);
+
+        }
 
 
     }
