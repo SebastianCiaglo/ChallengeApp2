@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine();
 Console.WriteLine();
 
-var employee = new Employee();
+var employee = new Employee("Bogdan", "R", 'k');
 
 try
 {

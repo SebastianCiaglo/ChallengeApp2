@@ -10,7 +10,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R");
+            var employee = new Employee("Bogdan", "R", 'k');
             employee.AddGrade(5);
             employee.AddGrade(7);
             employee.AddGrade(2);
@@ -31,7 +31,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R");
+            var employee = new Employee("Bogdan", "R", 'k');
             employee.AddGrade(2);
             employee.AddGrade(2);
             employee.AddGrade(6);
@@ -54,7 +54,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R");
+            var employee = new Employee("Bogdan", "R", 'k');
             employee.AddGrade(5);
             employee.AddGrade(7);
 
@@ -77,7 +77,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R");
+            var employee = new Employee("Bogdan", "R", 'k');
             employee.AddGrade(5);
             employee.AddGrade(7);
 
@@ -98,7 +98,7 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee = new Employee("Bogdan", "R");
+            var employee = new Employee("Bogdan", "R", 'k');
             employee.AddGrade('a');
             employee.AddGrade("a");
             employee.AddGrade(100);

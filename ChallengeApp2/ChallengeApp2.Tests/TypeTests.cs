@@ -1,4 +1,4 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿
 
 namespace ChallengeApp2.Tests
 {
@@ -28,8 +28,8 @@ namespace ChallengeApp2.Tests
         {
             // arrange
 
-            var employee1 = GetEmployee("Janusz", "T");
-            var employee2 = GetEmployee("Jan", "Z");
+            var employee1 = GetEmployee("Janusz", "T", 'm');
+            var employee2 = GetEmployee("Jan", "Z", 'm');
 
             // act
 
@@ -40,10 +40,10 @@ namespace ChallengeApp2.Tests
 
         }
 
-        private Employee GetEmployee(string name, string surname)
+        private Employee GetEmployee(string name, string surname, char sex)
         {
 
-            return new Employee(name, surname);
+            return new Employee(name, surname, sex);
 
         }
 

@@ -1,38 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ChallengeApp2
 {
-    public class Employee
+    public class Employee : Person 
     {
-
-        private readonly char sex;
 
         private List<float> grades = new List<float>();
 
-
-        public Employee()
+        public Employee(string name, string surname, char sex) : base(name, surname, sex)
         {
 
-
         }
-
-
-        public Employee(string name, string surname, char sex)
-        {
-            this.Name = name;
-            this.Surname = surname;
-            this.sex = sex;
-        }
-
-        public string Name { get; private set; }
-
-        public string Surname { get; private set; }
-
 
 
         public float Result
