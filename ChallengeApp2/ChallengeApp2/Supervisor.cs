@@ -1,111 +1,89 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace ChallengeApp2
 {
-    public class Employee : IEmployee 
+    public class Supervisor : IEmployee
     {
-
-        private readonly char sex;
-
-        private List<float> grades = new List<float>();
-
         public string Name { get; private set; }
 
         public string Surname { get; private set; }
 
-        public Employee(string name, string surname, char sex)
+        private List<float> grades = new List<float>();
+
+        public Supervisor(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
-            this.sex = sex;
         }
 
-
-        public float Result
-        {
-            get
-            {
-                return this.grades.Sum();
-            }
-        }
 
         public void AddGrade(float grade)
         {
-            if (grade >= 0 && grade <= 100)
+            if (grade >= 1 && grade <= 6)
             {
-                this.grades.Add(grade);
+                string gradeAsString = grade.ToString();
+                this.AddGrade(gradeAsString);
             }
             else
             {
                 throw new Exception("Invalid grade value");
             }
-
         }
 
         public void AddGrade(string grade)
         {
-            if (float.TryParse(grade, out float result))
-            {
-                this.AddGrade(result);
-            }
-            else if (char.TryParse(grade, out char charresult))
-            {
-                this.AddGrade(charresult);
-            }
-            else
-            {
-                throw new Exception("Invalid grade value");
-            }
-        }
-
-        public void AddGrade(double grade)
-        {
-
-            float gradeAsFloat = (float)grade;
-            this.AddGrade(gradeAsFloat);
-
-
-        }
-
-        public void AddGrade(char grade)
-        {
-
-
             switch (grade)
             {
-                case 'A':
-                case 'a':
+                case "6":
                     this.grades.Add(100);
                     break;
-                case 'B':
-                case 'b':
+                case "5":
                     this.grades.Add(80);
                     break;
-                case 'C':
-                case 'c':
+                case "4":
                     this.grades.Add(60);
                     break;
-                case 'D':
-                case 'd':
+                case "3":
                     this.grades.Add(40);
                     break;
-                case 'E':
-                case 'e':
+                case "-3":
+                    this.grades.Add(35);
+                    break;
+                case "3-":
+                    this.grades.Add(35);
+                    break;
+                case "2+":
+                    this.grades.Add(25);
+                    break;
+                case "+2":
+                    this.grades.Add(25);
+                    break;
+                case "2":
                     this.grades.Add(20);
                     break;
-                case 'F':
-                case 'f':
+                case "1":
                     this.grades.Add(0);
                     break;
                 default:
                     throw new Exception("Invalid grade value");
 
             }
-
         }
 
-        public void AddPenalty(int number)
+        public void AddGrade(char grade)
         {
-            this.grades.Add(number);
+            string gradeAsString= grade.ToString();
+            this.AddGrade(gradeAsString);
+        }
+
+        public void AddGrade(double grade)
+        {
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
         }
 
         public Statistics GetStatistics()
@@ -162,11 +140,5 @@ namespace ChallengeApp2
 
             return statistics;
         }
-
-        
-
-
-
-
     }
 }
