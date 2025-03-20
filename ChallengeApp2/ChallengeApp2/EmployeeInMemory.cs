@@ -1,34 +1,15 @@
 ﻿
 namespace ChallengeApp2
 {
-    public class Employee : IEmployee 
+    public class EmployeeInMemory : EmployeeBase
     {
-
-        private readonly char sex;
-
         private List<float> grades = new List<float>();
 
-        public string Name { get; private set; }
-
-        public string Surname { get; private set; }
-
-        public Employee(string name, string surname, char sex)
+        public EmployeeInMemory(string name, string surname) : base(name, surname)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.sex = sex;
         }
 
-
-        public float Result
-        {
-            get
-            {
-                return this.grades.Sum();
-            }
-        }
-
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
             {
@@ -38,10 +19,9 @@ namespace ChallengeApp2
             {
                 throw new Exception("Invalid grade value");
             }
-
         }
 
-        public void AddGrade(string grade)
+        public override void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
             {
@@ -57,19 +37,8 @@ namespace ChallengeApp2
             }
         }
 
-        public void AddGrade(double grade)
+        public override void AddGrade(char grade)
         {
-
-            float gradeAsFloat = (float)grade;
-            this.AddGrade(gradeAsFloat);
-
-
-        }
-
-        public void AddGrade(char grade)
-        {
-
-
             switch (grade)
             {
                 case 'A':
@@ -98,17 +67,23 @@ namespace ChallengeApp2
                     break;
                 default:
                     throw new Exception("Invalid grade value");
-
             }
-
         }
 
-        public void AddPenalty(int number)
+        public override void AddGrade(double grade)
         {
-            this.grades.Add(number);
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
         }
 
-        public Statistics GetStatistics()
+        public override void AddGrade(int grade)
+        {
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
+        }
+        
+
+        public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
 
@@ -161,12 +136,6 @@ namespace ChallengeApp2
             }
 
             return statistics;
-        }
-
-        public void AddGrade(int grade)
-        {
-            float gradeAsFloat = (float)grade;
-            this.AddGrade(gradeAsFloat);
         }
     }
 }

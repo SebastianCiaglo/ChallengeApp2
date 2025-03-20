@@ -5,7 +5,10 @@ Console.WriteLine();
 Console.WriteLine();
 
 var employee = new Employee("Bogdan", "R", 'k');
+var employeeInMemory = new EmployeeInMemory("Bogdan", "Rr");
+var employeeInFile = new EmployeeInFile("Bogdan", "Rr");
 
+/*
 try
 {
 
@@ -18,6 +21,7 @@ catch(Exception exception)
     Console.WriteLine(exception.Message);
 
 }
+*/
 
 
 while(true)
@@ -32,7 +36,9 @@ while(true)
 
     try
     {
-        employee.AddGrade(input);
+        //employee.AddGrade(input);
+        employeeInMemory.AddGrade(input);
+        employeeInFile.AddGrade(input);
     }
     catch(Exception exception)
     {
@@ -42,7 +48,8 @@ while(true)
 
 
 
-var statistics = employee.GetStatistics();
+var statistics = employeeInFile.GetStatistics();
+//var statistics = employeeInMemory.GetStatistics();
 
 Console.WriteLine($"Average: {statistics.Average:N2}");
 Console.WriteLine($"Min: {statistics.Min}");

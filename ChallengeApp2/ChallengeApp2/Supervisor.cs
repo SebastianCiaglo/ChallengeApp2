@@ -140,5 +140,11 @@ namespace ChallengeApp2
 
             return statistics;
         }
+
+        public void AddGrade(int grade)
+        {
+            float gradeAsFloat = (float)grade;
+            this.AddGrade(gradeAsFloat);
+        }
     }
 }

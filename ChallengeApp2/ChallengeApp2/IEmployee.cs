@@ -20,6 +20,7 @@ namespace ChallengeApp2
 
         public void AddGrade(double grade);
 
+        public void AddGrade(int grade);
 
         Statistics GetStatistics();
     }
