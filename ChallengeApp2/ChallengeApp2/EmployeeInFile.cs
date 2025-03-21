@@ -1,7 +1,5 @@
 ﻿
 
-using System;
-
 namespace ChallengeApp2
 {
     public class EmployeeInFile : EmployeeBase
@@ -12,6 +10,8 @@ namespace ChallengeApp2
         {
         }
 
+        public override event GradeAddedDelegate GradeAdded;
+
         public override void AddGrade(float grade)
         {
 
@@ -21,6 +21,12 @@ namespace ChallengeApp2
                 {
                     writer.WriteLine(grade);
                 }
+
+                if (GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
+
             }
             else
             {
